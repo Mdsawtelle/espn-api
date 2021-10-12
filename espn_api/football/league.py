@@ -290,3 +290,16 @@ class League(BaseLeague):
         if len(data['players']) > 0:
             return Player(data['players'][0], self.year)
 
+    def boxplayer_info(self, playerId: int = None, week: int = None,pos: str = None):
+        ''' Returns boxplayer class if name found for given week and position '''
+
+        params = { 'view': 'kona_playercard' }
+        filters = {'players':{'filterIds':{'value':[playerId]}, 'filterStatsForTopScoringPeriodIds':{'value':16, "additionalValue":["00{}".format(self.year), "10{}".format(self.year)]}}}
+        headers = {'x-fantasy-filter': json.dumps(filters)}
+        pro_schedule = self._get_pro_schedule(scoring_period)
+        positional_rankings = self._get_positional_ratings(scoring_period)
+
+        data = self.espn_request.league_get(params=params, headers=headers)
+
+        if len(data['players']) > 0:
+            return BoxPlayer(data['players'][0], pro_schedule, positional_rankings,week,self.year)
