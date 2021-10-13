@@ -288,18 +288,22 @@ class League(BaseLeague):
         data = self.espn_request.league_get(params=params, headers=headers)
 
         if len(data['players']) > 0:
-            return Player(data['players'][0], self.year)
+            return Player(data['players'][0], self.year), data['players'][0]
 
-    def boxplayer_info(self, playerId: int = None, week: int = None,pos: str = None):
+    def pos_list(self, playerId: int = None, week: int = None,pos: str = None):
         ''' Returns boxplayer class if name found for given week and position '''
-
-        params = { 'view': 'kona_playercard' }
-        filters = {'players':{'filterIds':{'value':[playerId]}, 'filterStatsForTopScoringPeriodIds':{'value':16, "additionalValue":["00{}".format(self.year), "10{}".format(self.year)]}}}
-        headers = {'x-fantasy-filter': json.dumps(filters)}
+        pos_l = []
         pro_schedule = self._get_pro_schedule(week)
         positional_rankings = self._get_positional_ratings(week)
 
-        data = self.espn_request.league_get(params=params, headers=headers)
+        for id in self.player_map:
+            if isinstance(id,int):
+                p, d = league.player_info(playerId=id)
+                if p is None:
+                    print('No player Found')
+                else:
+                    if p.position = pos:
+                        bp = BoxPlayer(d, pro_schedule, positional_rankings,week,self.year)
+                        pos_l.append(bp)
 
-        if len(data['players']) > 0:
-            return BoxPlayer(data['players'][0], pro_schedule, positional_rankings,week,self.year)
+        return pos_l
