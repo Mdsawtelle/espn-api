@@ -289,11 +289,8 @@ class League(BaseLeague):
         if len(data['players']) > 0:
             p = Player(data['players'][0], self.year)
             d = data['players'][0]
-            if p is None:
-                print('this player does not have a card')
-                p = 0
-            else:
-                print('found a player')
+            print('found a player')
+            print(p,d)
         return p, d
 
     def get_pos_stats(self, week: int = None, pos: str = None):
