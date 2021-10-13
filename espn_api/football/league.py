@@ -305,7 +305,7 @@ class League(BaseLeague):
         pro_schedule = self._get_pro_schedule(week)
         positional_rankings = self._get_positional_ratings(week)
 
-        for id in self.player_map.keys[0:20]:
+        for id in self.player_map.items()[0:20]:
             if isinstance(id,int):
                 p = self.player_info(playerId=id)
                 print(p)
