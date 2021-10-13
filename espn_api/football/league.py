@@ -309,15 +309,11 @@ class League(BaseLeague):
         for id in sample:
             if isinstance(id,int):
                 p = self.player_info(playerId=id)
-                print(p)
                 if p is None:
-                    print('pass1')
                     pass
                 else:
                     if p[0].position == pos:
-                        print("WE DID IT!")
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         pos_l.append(bp)
-                        print(pos_l)
 
         return pos_l

@@ -3,6 +3,7 @@ from espn_api.football.box_score import BoxScore
 import json
 import io
 import csv
+import time
 
 
 l_id = 1621950432
@@ -135,4 +136,10 @@ def optlineup(team,week):
 o=league.teams
 print(o)
 print(league.player_map)
-print(league.get_pos_stats(1,"QB"))
+
+for i in range(1,5):
+    for j in teamcomp:
+        x = league.get_pos_stats(i,j)
+        x.sort(reverse=True,key=sortpt)
+        print(x)
+        time.sleep(30)
