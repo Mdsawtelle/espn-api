@@ -298,7 +298,7 @@ class League(BaseLeague):
 
         for id in self.player_map:
             if isinstance(id,int):
-                p, d = league.player_info(playerId=id)
+                p, d = self.player_info(playerId=id)
                 if p is None:
                     print('No player Found')
                 else:
