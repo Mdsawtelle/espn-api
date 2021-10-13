@@ -276,7 +276,10 @@ class League(BaseLeague):
 
     def player_info(self, name: str = None, playerId: int = None):
         ''' Returns Player class if name found '''
-        player = []
+        plr = []
+        p = 0
+        d = 0
+
         if name:
             playerId = self.player_map.get(name)
         if playerId is None or isinstance(playerId, str):
@@ -287,12 +290,16 @@ class League(BaseLeague):
 
         data = self.espn_request.league_get(params=params, headers=headers)
         if len(data['players']) > 0:
-            p =0 
+            p = 0
+            d = 0
             p = Player(data['players'][0], self.year)
             d = data['players'][0]
             print('found a player')
             print(p,d)
-            return p, d
+            pl.append(p)
+            pl.append(d)
+            return pl
+
 
     def get_pos_stats(self, week: int = None, pos: str = None):
         ''' Returns boxplayer class if name found for given week and position '''
@@ -302,12 +309,12 @@ class League(BaseLeague):
 
         for id in self.player_map:
             if isinstance(id,int):
-                p,d = self.player_info(playerId=id)
-                if p == 0:
+                p = self.player_info(playerId=id)
+                if p[0] is None:
                     print('No player Found')
                 else:
                     if p.position == pos:
-                        bp = BoxPlayer(d, pro_schedule, positional_rankings,week,self.year)
+                        bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         pos_l.append(bp)
 
         return pos_l
