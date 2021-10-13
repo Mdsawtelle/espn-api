@@ -145,7 +145,6 @@ for i in range(1,5):
     tes.sort(reverse=True,key=sortpt)
     dst.sort(reverse=True,key=sortpt)
     k.sort(reverse=True,key=sortpt)
-    x.sort(reverse=True,key=sortpt)
     print(qbs)
     print(wrs)
     print(rbs)

@@ -318,27 +318,21 @@ class League(BaseLeague):
                     pass
                 else:
                     if p[0].position == 'QB':
-                        print('found qb')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         qbs.append(bp)
                     elif p[0].position == 'WR':
-                        print('found wr')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         wrs.append(bp)
                     elif p[0].position == 'RB':
-                        print('found rb')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         rbs.append(bp)
                     elif p[0].position == 'TE':
-                        print('found te')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         tes.append(bp)
                     elif p[0].position == 'D/ST':
-                        print('found dst')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         dst.append(bp)
                     elif p[0].position == 'K':
-                        print('found k')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         k.append(bp)
                     else:
