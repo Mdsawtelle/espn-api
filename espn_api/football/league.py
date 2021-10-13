@@ -295,9 +295,9 @@ class League(BaseLeague):
             p = Player(data['players'][0], self.year)
             d = data['players'][0]
             print('found a player')
-            print(p,d)
             pl.append(p)
             pl.append(d)
+            print(pl)
             return pl
 
 
@@ -312,8 +312,9 @@ class League(BaseLeague):
                 p = self.player_info(playerId=id)
                 if p[0] is None:
                     print('No player Found')
+                    pass
                 else:
-                    if p.position == pos:
+                    if p[0] == pos:
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         pos_l.append(bp)
 
