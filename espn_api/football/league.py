@@ -299,9 +299,14 @@ class League(BaseLeague):
             return pl
 
 
-    def get_pos_stats(self, week: int = None, pos: str = None):
+    def get_pos_stats(self, week: int = None):
         ''' Returns boxplayer class if name found for given week and position '''
-        pos_l = []
+        qbs = []
+        rbs = []
+        wrs = []
+        tes = []
+        dst = []
+        k = []
         sample = list(self.player_map)
         pro_schedule = self._get_pro_schedule(week)
         positional_rankings = self._get_positional_ratings(week)
@@ -312,8 +317,28 @@ class League(BaseLeague):
                 if p is None:
                     pass
                 else:
-                    if p[0].position == pos:
+                    if p[0].position == 'QB':
+                        print('found qb')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
-                        pos_l.append(bp)
-
-        return pos_l
+                        qbs.append(bp)
+                    elif p[0].position == 'WR':
+                        print('found wr')
+                        bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
+                        wrs.append(bp)
+                    elif p[0].position == 'RB':
+                        print('found rb')
+                        bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
+                        rbs.append(bp)
+                    elif p[0].position == 'TE':
+                        print('found te')
+                        bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
+                        tes.append(bp)
+                    elif p[0].position == 'D/ST':
+                        print('found dst')
+                        bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
+                        dst.append(bp)
+                    else p[0].position == 'K':
+                        print('found k')
+                        bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
+                        k.append(bp)
+        return qbs, wrs, rbs, tes, dst, k
