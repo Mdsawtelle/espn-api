@@ -1,5 +1,4 @@
 from espn_api.football import League, BoxPlayer
-from espn_api.football.league import boxplayer_info
 from espn_api.football.box_score import BoxScore
 import json
 import io

@@ -297,7 +297,7 @@ class League(BaseLeague):
         filters = {'players':{'filterIds':{'value':[playerId]}, 'filterStatsForTopScoringPeriodIds':{'value':16, "additionalValue":["00{}".format(self.year), "10{}".format(self.year)]}}}
         headers = {'x-fantasy-filter': json.dumps(filters)}
         pro_schedule = self._get_pro_schedule(week)
-        positional_rankings = self._get_positional_ratings(scoring_period)
+        positional_rankings = self._get_positional_ratings(week)
 
         data = self.espn_request.league_get(params=params, headers=headers)
 
