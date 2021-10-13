@@ -288,8 +288,11 @@ class League(BaseLeague):
         data = self.espn_request.league_get(params=params, headers=headers)
 
         if len(data['players']) > 0:
-            return (Player(data['players'][0], self.year), data['players'][0])
-
+            if Player(data['players'][0], self.year) is None:
+                pass
+            else:
+                return Player(data['players'][0], self.year), data['players'][0]
+            
     def get_pos_stats(self, week: int = None, pos: str = None):
         ''' Returns boxplayer class if name found for given week and position '''
         pos_l = []
