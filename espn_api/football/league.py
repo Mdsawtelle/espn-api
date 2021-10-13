@@ -303,7 +303,6 @@ class League(BaseLeague):
         ''' Returns boxplayer class if name found for given week and position '''
         pos_l = []
         sample = list(self.player_map)
-        sample = sample[0:500]
         pro_schedule = self._get_pro_schedule(week)
         positional_rankings = self._get_positional_ratings(week)
 
@@ -314,12 +313,7 @@ class League(BaseLeague):
                 if p is None:
                     print('pass1')
                     pass
-                elif p[0] is None:
-                    print('No player Found')
-                    pass
                 else:
-                    print(p[0].position)
-                    print('input pos: %s' % (pos))
                     if p[0].position == pos:
                         print("WE DID IT!")
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
