@@ -308,8 +308,8 @@ class League(BaseLeague):
         positional_rankings = self._get_positional_ratings(week)
 
         for id in sample:
-            if isinstance(id[0],int):
-                p = self.player_info(playerId=id[0])
+            if isinstance(id,int):
+                p = self.player_info(playerId=id)
                 print(p)
                 if p is None:
                     print('pass1')
