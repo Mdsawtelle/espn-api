@@ -286,14 +286,13 @@ class League(BaseLeague):
         headers = {'x-fantasy-filter': json.dumps(filters)}
 
         data = self.espn_request.league_get(params=params, headers=headers)
-
         if len(data['players']) > 0:
             if Player(data['players'][0], self.year) is None:
                 print('this player does not have a card')
                 pass
             else:
                 print('found a player')
-                return Player(data['players'][0], self.year), data['players'][0]
+                return (Player(data['players'][0], self.year), data['players'][0])
 
     def get_pos_stats(self, week: int = None, pos: str = None):
         ''' Returns boxplayer class if name found for given week and position '''
