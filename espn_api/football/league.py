@@ -303,7 +303,7 @@ class League(BaseLeague):
         ''' Returns boxplayer class if name found for given week and position '''
         pos_l = []
         sample = list(self.player_map)
-        sample = sample[0:20]
+        sample = sample[0:500]
         pro_schedule = self._get_pro_schedule(week)
         positional_rankings = self._get_positional_ratings(week)
 
