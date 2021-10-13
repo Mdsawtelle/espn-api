@@ -305,19 +305,21 @@ class League(BaseLeague):
         pro_schedule = self._get_pro_schedule(week)
         positional_rankings = self._get_positional_ratings(week)
 
-        for id in self.player_map:
+        for id in self.player_map.keys[0:20]:
             if isinstance(id,int):
                 p = self.player_info(playerId=id)
                 print(p)
                 if p is None:
+                    print('pass1')
                     pass
                 elif p[0] is None:
                     print('No player Found')
                     pass
                 else:
-                    if p[0].position == pos:
-                        bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
-                        pos_l.append(bp)
-                        print(pos_l)
+                    print(p.position)
+                    print('input pos: %s' % (pos))
+                    bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
+                    pos_l.append(bp)
+                    print(pos_l)
 
         return pos_l
