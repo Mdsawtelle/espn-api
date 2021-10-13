@@ -287,6 +287,7 @@ class League(BaseLeague):
 
         data = self.espn_request.league_get(params=params, headers=headers)
         if len(data['players']) > 0:
+            p =0 
             p = Player(data['players'][0], self.year)
             d = data['players'][0]
             print('found a player')
