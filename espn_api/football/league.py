@@ -276,7 +276,7 @@ class League(BaseLeague):
 
     def player_info(self, name: str = None, playerId: int = None):
         ''' Returns Player class if name found '''
-        plr = []
+        pl = []
         p = 0
         d = 0
 
