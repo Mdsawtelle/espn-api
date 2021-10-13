@@ -133,5 +133,5 @@ def optlineup(team,week):
     return round(optimal_score, 2), round(actual_score,2)
 
 o=league.teams
-
-league.pos_list(1,"RB")
+print(o)
+print(league.player_info(15755))
