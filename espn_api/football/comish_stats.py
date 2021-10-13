@@ -1,4 +1,5 @@
 from espn_api.football import League, BoxPlayer
+from espn_api.football import get_pos_stats
 from espn_api.football.box_score import BoxScore
 import json
 import io
@@ -134,4 +135,4 @@ def optlineup(team,week):
 
 o=league.teams
 print(o)
-print(league.get_pos_stats(1,"QB"))
+league.get_pos_stats(1,"QB")
