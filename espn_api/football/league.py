@@ -302,7 +302,7 @@ class League(BaseLeague):
     def get_pos_stats(self, week: int = None, pos: str = None):
         ''' Returns boxplayer class if name found for given week and position '''
         pos_l = []
-        sample = self.playermap.items()
+        sample = self.player_map.items()
         sample = sample[0:20]
         pro_schedule = self._get_pro_schedule(week)
         positional_rankings = self._get_positional_ratings(week)
