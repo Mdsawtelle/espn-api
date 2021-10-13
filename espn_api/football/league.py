@@ -292,8 +292,9 @@ class League(BaseLeague):
                 pass
             else:
                 print('found a player')
-                return (Player(data['players'][0], self.year), data['players'][0])
-
+                p = Player(data['players'][0], self.year)
+                d = data['players'][0]
+                return p, d 
     def get_pos_stats(self, week: int = None, pos: str = None):
         ''' Returns boxplayer class if name found for given week and position '''
         pos_l = []
