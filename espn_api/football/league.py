@@ -302,7 +302,7 @@ class League(BaseLeague):
                 if p is None:
                     print('No player Found')
                 else:
-                    if p.position = pos:
+                    if p.position == pos:
                         bp = BoxPlayer(d, pro_schedule, positional_rankings,week,self.year)
                         pos_l.append(bp)
 
