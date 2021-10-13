@@ -337,8 +337,10 @@ class League(BaseLeague):
                         print('found dst')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         dst.append(bp)
-                    else p[0].position == 'K':
+                    elif p[0].position == 'K':
                         print('found k')
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         k.append(bp)
+                    else:
+                        print('something crazy idk')
         return qbs, wrs, rbs, tes, dst, k
