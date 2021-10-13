@@ -134,4 +134,4 @@ def optlineup(team,week):
 
 o=league.teams
 print(o)
-print(league.player_info(15755))
+print(league.get_pos_stats(1,"QB"))
