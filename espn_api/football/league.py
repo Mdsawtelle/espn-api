@@ -294,10 +294,8 @@ class League(BaseLeague):
             d = 0
             p = Player(data['players'][0], self.year)
             d = data['players'][0]
-            print('found a player')
             pl.append(p)
             pl.append(d)
-            print(pl)
             return pl
 
 
@@ -310,13 +308,14 @@ class League(BaseLeague):
         for id in self.player_map:
             if isinstance(id,int):
                 p = self.player_info(playerId=id)
+                print(p)
                 if p is None:
                     pass
                 elif p[0] is None:
                     print('No player Found')
                     pass
                 else:
-                    if p[0] == pos:
+                    if p[0].position == pos:
                         bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
                         pos_l.append(bp)
                         print(pos_l)
