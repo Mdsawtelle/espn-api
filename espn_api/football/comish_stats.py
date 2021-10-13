@@ -134,14 +134,4 @@ def optlineup(team,week):
 
 o=league.teams
 
-print(league.player_map)
-
-week = 1
-pos = "RB"
-RBs = {}
-for id in league.player_map:
-    if isinstance(id,int):
-        if league.player_info(playerId=id) is None:
-            print('No player Found')
-        else:
-            print(league.boxplayer_info(id,1,"RB"))
+league.pos_list(1,"RB")
