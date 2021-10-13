@@ -318,10 +318,12 @@ class League(BaseLeague):
                     print('No player Found')
                     pass
                 else:
-                    print(p.position)
+                    print(p[0].position)
                     print('input pos: %s' % (pos))
-                    bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
-                    pos_l.append(bp)
-                    print(pos_l)
+                    if p[0].position == pos:
+                        print("WE DID IT!")
+                        bp = BoxPlayer(p[1], pro_schedule, positional_rankings,week,self.year)
+                        pos_l.append(bp)
+                        print(pos_l)
 
         return pos_l
